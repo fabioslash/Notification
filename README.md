@@ -6,12 +6,19 @@ Este projeto se define em fornecer uma aplicação que auxilie no envio de notif
 
 Arquitetura do projeto
 
-...
+  - Projeto WEB = No projeto WEB é composto pela arquitetura no modelo MVC. 
+      Model: Onde se localizará as classes de negócios.
+      View: Local onde ficará as classes relacionadas ao FrontEnd
+      Controler = Local onde ficará as classes que farão a comunicação entre o View e Model
+
+  - Projeto Mobile = No projeto mobile a organização das classes será baseado no padrão MVC.
+
+  - Outros
 
 
 Organização do repositório
 
-...
+  - 
 
 
 Ambiente de desenvolvimento
