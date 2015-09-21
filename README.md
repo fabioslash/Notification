@@ -66,6 +66,4 @@ passado do meio externo para a manipulação do backend.
 
 
 ## Definição de Baselines
-  * As Baselines serão definidas pela última versão do branch (master) e por um documento no WIKI informando todas as          features que foram acrescentadas na Baseline.
-
-
+  * As Baselines serão definidas pela última versão do branch (master) e por um documento no WIKI informando todas as          features que foram acrescentadas na Baseline. Este arquivo seguirá a seguinte nomenclatura: Baseline-Versão do branch master
