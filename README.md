@@ -62,7 +62,7 @@ passado do meio externo para a manipulação do backend.
 	* hotfix = Versões que foram encontradas BUGS estão nesta branch.
 
 ## Itens de Configuração
-  * Os arquivos que não serão versionados são: *.lib, *.jar.
+  * Os arquivos que não serão versionados são: *.lib, *.jar. Estes itens estão sendo gerenciados pelas ferramentas de 	Gerenciamento de Dependências: Maven, Graddle.
 
 
 ## Definição de Baselines
