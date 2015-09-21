@@ -8,30 +8,32 @@
     https://github.com/fabioslash/Notification/wiki/Documento-de-vis%C3%A3o
   - Documento de Arquitetura
 
+
 # Depêndencias do Projeto
 
-  -WEB
+-WEB
 
 * WildFly 8 [http://wildfly.org/downloads/](http://wildfly.org/downloads/)
 * Git
-* Maven - Contorle de dependências
+* Maven - Controle de dependências
 * Java JDK 1.8 [http://www.oracle.com/technetwork/java/javase/
 downloads/jdk8-downloads-2133151.html](http://www.oracle.com/technetwork/java/javase/
 downloads/jdk8-downloads-2133151.html)
 * framework AngularJS [https://code.angularjs.org/1.3.14/](https://code.angularjs.org/1.3.14/)
 
-  -Mobile
+-Mobile
   
 * Android Studio
 * Java JDK 1.8
-* Graddle
+* Graddle - Controle de dependências
+
 
 # Descrição de pastas
   * WEB = Contem todas os artefatos que estão relacionadas ao projeto WEB e o backend
   * Mobile = Contem todos os artefatos que estão relacionados ao projeto Mobile.
 
 
-# Componentes do sistema
+# Componentes do sistema - Denominações de nomenclaturas de classes
 ## Backend
 * Domain = Classes que serão persistidas e guardaram informações relevantes
 * Daos = Componente responsável pela manipulação dos dados com o Banco de dados
@@ -42,18 +44,28 @@ passado do meio externo para a manipulação do backend.
 ## Frontend
 * Controller.js = Componente responsável por manter a comunicação com o Backend e fornecer os dados para as páginas HTML
 
+## Mobile
+* Domain = Classes que serão persistidas e guardaram informações relevantes
+* Controller = Classe responsável por fazer a comunicação com o Banco de dados.
+* Service = Interface responsável por fazer a comunicação com os serviços de Backend do sistema na WEB
+* Activity = Classe responsável por fazer a manipulação das Views
 
-## Versionamento
-Nomenclatura de versionamento:
-a.b.c.d
 
-* a - Grandes alterações = Alterações de inclusão de novas features e novos módulos, inclusão de novas persistências, exclusão de features e môdulos.
-* b - Alterações médias = Inclusão e alteração de novos mêtodos utilitários e classes, que não deixam as versões imcompatíveis.
-* c - Pequenas alterações ou correções = Mudanças internas que afetam o desempenho, escalabilidade.
-* d - hotfix
+# Versionamento
 
-Todos os deploys em produção devem partir do ** branch master ** com sua respectiva tag (Obedecendo a nomenclatura acima).
+## GITFLOW
+  * master = Versões atualizadas que já estão aptas para a implantação depois dos testes realizados no branch (media).
+	* master-#.# = Versões antigas que foram mantidas por questões de compatibilidade e estão estáveis para implantação.
+	* media = Versões que estão em fase de testes pela inclusão de novas features. Inclui os merges das versões do branch (dev).
+	* dev = Versões que estão em desenvolvimento. Todas as novas features que serão implementadas devem partir deste branch.
+	* feature/nomeDaFeature = Versões que foram puchadas do branch (dev) no qual cada desenvolvedor está realizando a feature.     A nomenclatura deve indicar o nome da feature que está trabalhando depois da barra do nome feature. O nome da feature é      indicada pelo nome da tarefa que foi criada no Trello.
+	* hotfix = Versões que foram encontradas BUGS estão nesta branch.
 
-Qualquer alteração em uma tag gerada previamente é denominada como **hotfix**.
+## Itens de Configuração
+  * Os arquivos que não serão versionados são: *.lib, *.jar.
+
+
+## Definição de Baselines
+  * As Baselines serão definidas pela última versão do branch (master) e por um documento no WIKI informando todas as          features que foram acrescentadas na Baseline.
 
 
