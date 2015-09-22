@@ -41,19 +41,21 @@ downloads/jdk8-downloads-2133151.html)
 	* Service = Interface responsável por fazer a comunicação com os serviços de Backend do sistema na WEB
 	* Activity = Classe responsável por fazer a manipulação das Views
 
+* Migrate DataBase = Contém os scripts de migração do banco de dados da versão anterior para a versão atual
+
 # Componentes do sistema
 
 ## Backend
-	* Módulo de regras de negócio do sistema onde está disponibilizado o acesso através de serviços REST.
+* Módulo de regras de negócio do sistema onde está disponibilizado o acesso através de serviços REST.
 
 ## Frontend
-	* Módulo onde contém as views HTML e os sources que fazem a captura das informações do Backend utilizando o framework AngularJS.
+* Módulo onde contém as views HTML e os sources que fazem a captura das informações do Backend utilizando o framework AngularJS.
 	
 ## GCM
-	* Servidor de mensagens PUSH que está sendo utilizado o Google Cloud Messaging
+* Servidor de mensagens PUSH que está sendo utilizado o Google Cloud Messaging
 
 ## Mobile
-	* Módulo onde contém toda a estrutura da aplicação do mobile que foi construída para a plataforma Android. Realiza as requisições REST do Backend através do framework Spring-Android.
+* Módulo onde contém toda a estrutura da aplicação do mobile que foi construída para a plataforma Android. Realiza as requisições REST do Backend através do framework Spring-Android.
 
 
 # Versionamento
@@ -71,4 +73,7 @@ downloads/jdk8-downloads-2133151.html)
 
 
 ## Definição de Baselines
-  * As Baselines serão definidas pela última versão do branch (master) e por um documento no WIKI informando todas as          features que foram acrescentadas na Baseline. Este arquivo seguirá a seguinte nomenclatura: Baseline-Versão do branch master
+  As Baselines serão definidas sempre que subir uma nova versão no branch master e conterá os seguintes artefatos.
+  * Versão do branch master-#.#
+  * Documento no WIKI de Release-Notes-#.# = Indicando qual versão está relacionada.
+  * Arquivo de migração do Banco de dados que indica de qual versão ele migra e está localizado na pasta : Migrate DataBase que contém a nomenclatura: Migrate-#.#
