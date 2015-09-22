@@ -61,8 +61,7 @@ downloads/jdk8-downloads-2133151.html)
 # Versionamento
 
 ## Políticas de Branchs
-* master-#.# = Versões atualizadas que já estão aptas para a implantação depois dos testes realizados no branch (media).
-* master-ant-#.# = Versões antigas que foram mantidas por questões de compatibilidade e estão estáveis para implantação.
+* master = Versões atualizadas que já estão aptas para a implantação depois dos testes realizados no branch (media).
 * media = Versões que estão em fase de testes pela inclusão de novas features. Inclui os merges das versões do branch (dev).
 * dev = Versões que estão em desenvolvimento. Todas as novas features que serão implementadas devem partir deste branch.
 * feature/numeroTaskTrello = Versões que foram puchadas do branch (dev) no qual cada desenvolvedor está realizando a feature.     A nomenclatura deve indicar o número da task que foi gerada no Trello. Este identificador fica localizado na URL da task, antes do nome da task.
@@ -76,4 +75,5 @@ downloads/jdk8-downloads-2133151.html)
   As Baselines serão definidas sempre que subir uma nova versão no branch master e conterá os seguintes artefatos.
   * Versão do branch master-#.#
   * Documento no WIKI de Release-Notes-#.# = Indicando qual versão está relacionada.
+  * Numero do identificador do WIKI relacionado a baseline
   * Arquivo de migração do Banco de dados que indica de qual versão ele migra e está localizado na pasta : Migrate DataBase que contém a nomenclatura: Migrate-#.#
