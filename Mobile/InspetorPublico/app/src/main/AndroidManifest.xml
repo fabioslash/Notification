@@ -16,23 +16,22 @@
     <application>
         <meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+            android:value="@integer/google_play_services_version"/>
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity_"
-            android:label="@string/app_name"
-            android:launchMode="singleTop" >
+            android:label="@string/app_name">
         </activity>
 
         <receiver
             android:name=".gcm.GcmBroadcastReceiver_"
             android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <category android:name="inspetor.pin.com.br.inspetorpublico" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="inspetor.pin.com.br.inspetorpublico"/>
             </intent-filter>
         </receiver>
 
@@ -48,7 +47,8 @@
         </activity>
         <activity
             android:name=".DenunciaActivity_"
-            android:label="@string/title_activity_denuncia">
+            android:label="@string/title_activity_denuncia"
+            android:launchMode="singleTop">
         </activity>
     </application>
 

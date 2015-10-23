@@ -13,7 +13,9 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 import org.androidannotations.annotations.EService;
 
+import inspetor.pin.com.br.inspetorpublico.DenunciaActivity_;
 import inspetor.pin.com.br.inspetorpublico.MainActivity;
+import inspetor.pin.com.br.inspetorpublico.MainActivity_;
 import inspetor.pin.com.br.inspetorpublico.R;
 
 /**
@@ -55,7 +57,7 @@ public class GcmService extends IntentService {
     private void onMessage(Bundle extras) {
         String msg = extras.getString("msg");
         Log.d("#", msg);
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, DenunciaActivity_.class);
         intent.putExtra("msg", msg);
         NotificationUtil.create(this, 1, intent, R.drawable.ic_cast_dark, "Nova mensagem", msg);
     }

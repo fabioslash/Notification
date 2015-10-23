@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.UiThread;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -20,6 +21,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
@@ -32,6 +34,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import inspetor.pin.com.br.inspetorpublico.adapter.RecyclerViewAdapter;
+import inspetor.pin.com.br.inspetorpublico.controllers.DenunciaController;
 import inspetor.pin.com.br.inspetorpublico.gcm.Constantes;
 import inspetor.pin.com.br.inspetorpublico.gcm.GCM;
 import inspetor.pin.com.br.inspetorpublico.interfaces.ItemClickRecyclerView;
@@ -47,18 +50,18 @@ public class MainActivity extends Activity implements ItemClickRecyclerView {
     @Bean
     RecyclerViewAdapter recyclerViewAdapter;
 
-    List<String> lista = new ArrayList<String>();
+    @Bean
+    DenunciaController denunciaController;
+
+    List<Denuncia> listaDenuncias = new ArrayList<Denuncia>();
 
 
     @AfterViews
     public void afterViews() {
 
-        for (int i = 0; i < 10; i++) {
-            lista.add("Teste"+i);
-        }
-
-        recyclerViewAdapter.setListaString(lista);
+        listaDenuncias = denunciaController.getDenunciasDB();
         recyclerViewAdapter.setItemClickRecyclerView(this);
+        recyclerViewAdapter.setListaDenuncias(listaDenuncias);
 
         recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -78,6 +81,8 @@ public class MainActivity extends Activity implements ItemClickRecyclerView {
 
     }
 
+
+
     @OptionsItem(R.id.action_settings)
     void menuSobre() {
         Toast.makeText(MainActivity.this, "Toast do menu", Toast.LENGTH_SHORT).show();
@@ -91,29 +96,30 @@ public class MainActivity extends Activity implements ItemClickRecyclerView {
     }
 
 
+    @UiThread
     public void registrarGcm() {
-       final Handler handler = new Handler();
+       /*final Handler handler = new Handler();
         new Thread() {
             @Override
             public void run() {
                 super.run();
                 handler.post(new Runnable() {
                     @Override
-                    public void run() {
+                    public void run() {*/
                         String regId = GCM.getRegistrationId(MainActivity.this);
 
-                        if (regId == null) {
+                        if (regId != null) {
                             regId = GCM.register(MainActivity.this, Constantes.PROJECT_NUMBER);
                             Log.d("#", "Registrado com sucesso, RegID: "+ regId);
                             Toast.makeText(MainActivity.this, "RegID: "+regId, Toast.LENGTH_LONG).show();
                         } else {
-                            Log.d("#", "Erro no registro do GCM");
+                            Log.d("#", "Erro no registro do GCM"+regId);
                             Toast.makeText(MainActivity.this, "Erro no RegID", Toast.LENGTH_LONG).show();
                         }
-                    }
+                    /*}
                 });
             }
-        }.start();
+        }.start();*/
     }
 
 

@@ -1,0 +1,59 @@
+#
+# generated on 2015/10/23 11:20:08
+#
+# --table-start--
+dataClass=inspetor.pin.com.br.inspetorpublico.model.Denuncia
+tableName=denuncia
+# --table-fields-start--
+# --field-start--
+fieldName=id
+id=true
+# --field-end--
+# --field-start--
+fieldName=descricao
+# --field-end--
+# --field-start--
+fieldName=valor
+# --field-end--
+# --field-start--
+fieldName=cidade
+# --field-end--
+# --field-start--
+fieldName=estado
+# --field-end--
+# --field-start--
+fieldName=objetivo
+# --field-end--
+# --field-start--
+fieldName=patrocinador
+columnName=idPatrocinador
+canBeNull=false
+foreign=true
+foreignAutoRefresh=true
+# --field-end--
+# --field-start--
+fieldName=dataInicio
+# --field-end--
+# --field-start--
+fieldName=dataFim
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=inspetor.pin.com.br.inspetorpublico.model.Patrocinador
+tableName=patrocinador
+# --table-fields-start--
+# --field-start--
+fieldName=id
+id=true
+# --field-end--
+# --field-start--
+fieldName=nome
+# --field-end--
+# --field-start--
+fieldName=logo
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################

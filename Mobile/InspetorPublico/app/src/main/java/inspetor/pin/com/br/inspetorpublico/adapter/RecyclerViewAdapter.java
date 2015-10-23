@@ -3,18 +3,24 @@ package inspetor.pin.com.br.inspetorpublico.adapter;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.androidannotations.annotations.AfterInject;
+import org.androidannotations.annotations.Background;
+import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.Extra;
 import org.androidannotations.annotations.RootContext;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import inspetor.pin.com.br.inspetorpublico.R;
 import inspetor.pin.com.br.inspetorpublico.adapter.item.ItemCardView;
 import inspetor.pin.com.br.inspetorpublico.adapter.item.ItemCardView_;
+import inspetor.pin.com.br.inspetorpublico.controllers.DenunciaController;
 import inspetor.pin.com.br.inspetorpublico.interfaces.ItemClickRecyclerView;
 import inspetor.pin.com.br.inspetorpublico.model.Denuncia;
 
@@ -23,10 +29,13 @@ import inspetor.pin.com.br.inspetorpublico.model.Denuncia;
  */
 
 @EBean
-public class RecyclerViewAdapter extends RecyclerViewAdapterBase<String, ItemCardView> {
+public class RecyclerViewAdapter extends RecyclerViewAdapterBase<Denuncia, ItemCardView> {
 
     @RootContext
     Context context;
+
+    @Bean
+    DenunciaController denunciaController;
 
     ItemClickRecyclerView itemClickRecyclerView;
 
@@ -40,8 +49,8 @@ public class RecyclerViewAdapter extends RecyclerViewAdapterBase<String, ItemCar
     @Override
     public void onBindViewHolder(ViewHolderItemCardView<ItemCardView> holder, int position) {
         ItemCardView itemCardView = holder.getItem();
-        Bitmap bit = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_play_dark);
-        itemCardView.bind("8798982", listaString.get(position), listaString.get(position), bit);
+        Bitmap logoDenuncia = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_icon);
+        itemCardView.bind(listaDenuncia.get(position).getId(), listaDenuncia.get(position).getDescricao(), listaDenuncia.get(position).getObjetivo(), logoDenuncia);
 
         //Método que delega o click do item da RecyclerView para a classe que implemente a interface: ItemClickRecyclerView
         if (itemClickRecyclerView != null) {
@@ -55,8 +64,8 @@ public class RecyclerViewAdapter extends RecyclerViewAdapterBase<String, ItemCar
 
     }
 
-    public void setListaString(List<String> listaString) {
-        this.listaString = listaString;
+    public void setListaDenuncias(List<Denuncia> listaDenuncia) {
+        this.listaDenuncia = listaDenuncia;
     }
 
 

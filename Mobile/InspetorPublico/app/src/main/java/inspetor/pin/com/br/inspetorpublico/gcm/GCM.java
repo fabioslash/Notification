@@ -2,9 +2,13 @@ package inspetor.pin.com.br.inspetorpublico.gcm;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.util.Log;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
+import com.google.android.gms.iid.InstanceID;
+
+import org.androidannotations.annotations.Background;
 
 import java.io.IOException;
 
@@ -41,25 +45,43 @@ public class GCM {
     }
 
 
-    public static String register(Context context, String projectNumber) {
-        GoogleCloudMessaging gcm = GoogleCloudMessaging.getInstance(context);
+    public static String register(final Context context, final String projectNumber) {
+        new AsyncTask<Void, Void, String>() {
+            @Override
+            protected String doInBackground(Void... params) {
+                GoogleCloudMessaging gcm = GoogleCloudMessaging.getInstance(context);
+                String registrationId = null;
 
-        try {
+                /*try {
+                    Log.d("#", "GCM.registrar() número do projeto: "+ projectNumber);
+                    registrationId = gcm.register(projectNumber);
 
-            Log.d("#", "GCM.registrar() número do projeto: "+ projectNumber);
-            String registrationId = gcm.register(projectNumber);
+                    if (registrationId != null) {
+                        saveRegistrationId(context, registrationId);
+                    }
 
-            if (registrationId != null) {
-                saveRegistrationId(context, registrationId);
+                    Log.d("#", "GCM.registrar() com sucesso, registrationID: "+ registrationId);
+                    return registrationId;
+
+                } catch (IOException e) {
+                    Log.d("#", "GCM.registrar() Erro: "+ e.getMessage());
+                    e.printStackTrace();
+                }*/
+
+                try {
+                    InstanceID instanceID = InstanceID.getInstance(context);
+                    registrationId = instanceID.getToken(projectNumber, GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
+                    Log.d("#", "Registration ID com Token: "+ registrationId);
+
+                } catch (IOException e) {
+                    Log.d("#", "GCM.registrar() Erro: "+ e.getMessage());
+                    e.printStackTrace();
+                }
+
+                return registrationId;
             }
+        }.execute(null, null, null);
 
-            Log.d("#", "GCM.registrar() com sucesso, registrationID: "+ registrationId);
-            return registrationId;
-
-        } catch (IOException e) {
-            Log.d("#", "GCM.registrar() Erro: "+ e.getMessage());
-            e.printStackTrace();
-        }
 
         return null;
     }

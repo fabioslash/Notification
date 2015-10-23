@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,12 +12,12 @@ import java.util.List;
  */
 public abstract class RecyclerViewAdapterBase<T, V extends View> extends RecyclerView.Adapter<ViewHolderItemCardView<V>> {
 
-    protected List<T> listaString;
+    protected List<T> listaDenuncia = new ArrayList<>();
 
 
     @Override
     public int getItemCount() {
-        return listaString.size();
+        return listaDenuncia.size();
     }
 
 
