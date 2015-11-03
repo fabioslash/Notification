@@ -2,10 +2,10 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="inspetor.pin.com.br.inspetorpublico.DenunciaActivity">
+    tools:context="inspetor.pin.com.br.inspetorpublico.DenunciaActivity"
+    android:background="@android:color/white">
 
     <ImageView
         android:id="@+id/imageView_foto_denuncia"
@@ -22,7 +22,7 @@
         style="@style/StyleTextView"
         android:text="Título"
         android:textSize="30sp"
-        android:layout_margin="10dp"
+        android:layout_marginTop="15dp"
         android:layout_centerHorizontal="true"
         />
 
@@ -30,6 +30,7 @@
         android:id="@+id/textView_fixo_id_denuncia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
         android:text="ID: "
         android:layout_below="@+id/imageView_foto_denuncia"/>
 
@@ -42,36 +43,40 @@
         android:layout_toRightOf="@+id/textView_fixo_id_denuncia"/>
 
     <TextView
+        android:id="@+id/textView_descricao_denuncia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView_titulo_denuncia"
         android:text="Descrição"
         style="@style/StyleTextView"
-        android:layout_margin="10dp"
-        android:id="@+id/textView" />
+        android:layout_margin="20dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_alignParentBottom="true"
+        >
 
     <TextView
         android:id="@+id/textView_fixo_meuvoto"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="57dp"
+        android:layout_height="match_parent"
         android:textColor="@android:color/secondary_text_light"
         android:text="Meu Voto: "
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_alignTop="@+id/ratingBar_denuncia"
-        android:layout_alignBottom="@+id/ratingBar_denuncia"
-        android:gravity="center_vertical"
-        android:layout_alignParentBottom="true"/>
+        android:gravity="center"/>
 
     <RatingBar
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ratingBar_denuncia"
-        android:layout_marginBottom="57dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignRight="@+id/textView_fixo_meuvoto"/>
+        android:numStars="5"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

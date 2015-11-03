@@ -4,6 +4,7 @@ import org.androidannotations.annotations.rest.Accept;
 import org.androidannotations.annotations.rest.Get;
 import org.androidannotations.annotations.rest.Rest;
 import org.androidannotations.api.rest.MediaType;
+import org.androidannotations.api.rest.RestClientErrorHandling;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.http.converter.json.GsonHttpMessageConverter;
@@ -19,7 +20,7 @@ import inspetor.pin.com.br.inspetorpublico.rest.utils.RequestPath;
  */
 
 @Rest(rootUrl = RequestPath.ROOT_URL, converters = {GsonHttpMessageConverter.class}, interceptors = {RequestInterceptor.class})
-public interface DenunciaService {
+public interface DenunciaService extends RestClientErrorHandling {
 
     @Get(RequestPath.GET_OBRA)
     @Accept(MediaType.APPLICATION_JSON)

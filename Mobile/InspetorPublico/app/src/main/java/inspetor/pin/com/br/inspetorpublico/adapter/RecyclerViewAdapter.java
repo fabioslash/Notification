@@ -47,7 +47,7 @@ public class RecyclerViewAdapter extends RecyclerViewAdapterBase<Denuncia, ItemC
 
 
     @Override
-    public void onBindViewHolder(ViewHolderItemCardView<ItemCardView> holder, int position) {
+    public void onBindViewHolder(ViewHolderItemCardView<ItemCardView> holder, final int position) {
         ItemCardView itemCardView = holder.getItem();
         Bitmap logoDenuncia = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_icon);
         itemCardView.bind(listaDenuncia.get(position).getId(), listaDenuncia.get(position).getDescricao(), listaDenuncia.get(position).getObjetivo(), logoDenuncia);
@@ -57,7 +57,7 @@ public class RecyclerViewAdapter extends RecyclerViewAdapterBase<Denuncia, ItemC
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    itemClickRecyclerView.clickItemRecyclerView(new Denuncia());
+                    itemClickRecyclerView.clickItemRecyclerView(listaDenuncia.get(position));
                 }
             });
         }

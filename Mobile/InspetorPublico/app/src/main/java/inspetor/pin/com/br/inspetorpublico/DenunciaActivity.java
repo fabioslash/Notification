@@ -25,13 +25,24 @@ import inspetor.pin.com.br.inspetorpublico.model.Denuncia;
 public class DenunciaActivity extends Activity {
 
     @ViewById(R.id.textView_titulo_denuncia)
-    TextView textView;
+    TextView textViewTitulo;
+
+    @ViewById(R.id.textView_id_denuncia)
+    TextView textViewIdDenuncia;
+
+    @ViewById(R.id.textView_descricao_denuncia)
+    TextView textViewDescricaoDenuncia;
+
+    @Extra
+    Denuncia denuncia;
 
 
 
     @AfterViews
     public void afterViews() {
-
+        textViewIdDenuncia.setText(denuncia.getId());
+        textViewTitulo.setText(denuncia.getDescricao());
+        textViewDescricaoDenuncia.setText(denuncia.getObjetivo());
     }
 
     @Override
@@ -43,7 +54,7 @@ public class DenunciaActivity extends Activity {
 
     @UiThread
     public void setInformacoesDenunciaNotificacao(String msg) {
-        textView.setText(msg);
+        textViewTitulo.setText(msg);
     }
 
 }

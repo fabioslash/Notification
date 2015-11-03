@@ -61,7 +61,14 @@ public class MainActivity extends Activity implements ItemClickRecyclerView {
 
         listaDenuncias = denunciaController.getDenunciasDB();
         recyclerViewAdapter.setItemClickRecyclerView(this);
-        recyclerViewAdapter.setListaDenuncias(listaDenuncias);
+        recyclerViewAdapter.setListaDenuncias(listaDenuncias
+
+
+
+
+
+
+        );
 
         recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -149,7 +156,8 @@ public class MainActivity extends Activity implements ItemClickRecyclerView {
      */
     @Override
     public void clickItemRecyclerView(Denuncia denuncia) {
-        DenunciaActivity_.intent(MainActivity.this).start();
+        Log.d("#", "Clique na denuncia de objetivo: "+ denuncia.getObjetivo());
+        DenunciaActivity_.intent(MainActivity.this).extra("denuncia", denuncia).start();
     }
 
 

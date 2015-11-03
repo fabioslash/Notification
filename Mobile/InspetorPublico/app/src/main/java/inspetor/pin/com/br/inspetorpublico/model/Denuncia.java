@@ -5,12 +5,14 @@ import android.graphics.Bitmap;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+import java.io.Serializable;
+
 /**
  * Created by clail on 12/10/2015.
  */
 
 @DatabaseTable
-public class Denuncia {
+public class Denuncia implements Serializable {
 
     @DatabaseField(id = true)
     private String id;
